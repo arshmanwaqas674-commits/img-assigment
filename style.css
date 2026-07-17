@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1b0809 0%, #030203 99%, #131112 100%);
+    overflow: hidden;
+    position: relative;
+   
+}
+
+.bg-img{
+    object-fit: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+}
+
+/* Animated Background Bubbles */
+.ocean-bubble {
+    position: absolute;
+    bottom: -150px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: floatUp 10s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Card Container */
+.card {
+    position: relative;
+    width: 350px;
+    height: 480px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s;
+    cursor: pointer;
+}
+
+/* Card Hover Effects */
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Sun Animation Layer */
+.sun-icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ffeb3b, #ff9800);
+    border-radius: 50%;
+    margin-bottom: 25px;
+    box-shadow: 0 0 40px #ff9800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s ease;
+}
+
+/* Rotating Sun Rays */
+.sun-icon::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border: 3px dashed #ffeb3b;
+    border-radius: 50%;
+    animation: rotateRay 12s linear infinite;
+}
+
+@keyframes rotateRay {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.card:hover .sun-icon {
+    transform: scale(1.15) rotate(45deg);
+    box-shadow: 0 0 60px #ff5722;
+}
+
+/* Typography & Badges */
+.badge {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ff5722;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.card:hover .badge {
+    background: #ff5722;
+    color: #fff;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.card:hover h2 {
+    color: #d35400;
+}
+
+p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Interactive Button */
+.btn {
+    position: relative;
+    padding: 12px 35px;
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: box-shadow 0.3s;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.4);
+}
+
+
+/* Card Container */
+.card {
+  background: white;
+  width: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 50px auto;
+}
+
+/* Animation on Hover */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.season {
+  font-size: 12px;
+  color: gray;
+  letter-spacing: 1px;
+}
+
+.price {
+  color: #d32f2f;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Responsive Setting */
+@media (max-width: 400px) {
+  .card {
+    width: 90%;
+  }
+}
+
+
+.summer-card{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.bg-img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.2);
+    padding:20px;
+}
+
+.product-card{
+    width:380px;
+    background:rgba(255,255,255,.92);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    transition:.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.badge{
+    display:inline-block;
+    background:#ffb300;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.product-img img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.product-info h2{
+    color:#ff9800;
+    margin-bottom:10px;
+}
+
+.product-info p{
+    color:#555;
+    line-height:1.6;
+}
+
+.details{
+    margin:20px 0;
+    text-align:left;
+}
+
+.details p{
+    margin:8px 0;
+    font-weight:600;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:#ff9800;
+    color:#fff;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ff5722;
+    transform:scale(1.05);
+}
